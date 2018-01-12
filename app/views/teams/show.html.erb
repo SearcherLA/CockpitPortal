@@ -1,0 +1,14 @@
+<% content_for(:page_header) do %>
+  <%= "Team anzeigen" %>
+<% end %>
+<% content_for :panel_heading do %><%= @team.name %><% end %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @team.name %>
+</p>
+
+<p>
+  <strong>Shortcut:</strong>
+  <%= @team.shortcut %>
+</p>

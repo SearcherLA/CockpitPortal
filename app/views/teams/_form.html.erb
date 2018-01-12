@@ -1,0 +1,25 @@
+<%= form_for(@team) do |f| %>
+  <% if @team.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= pluralize(@team.errors.count, "error") %> prohibited this team from being saved:</h3>
+
+      <ul>
+      <% @team.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, class: 'form-control', placeholder: 'Bitte Teamname eingeben...', required: true %>
+  </div>
+  <div class="form-group">
+    <%= f.label :shortcut %><br>
+    <%= f.text_area :shortcut, class: 'form-control', placeholder: 'Bitte Kürzel eingeben...', required: true %>
+  </div>
+  <div class="form-group actions">
+    <%= f.submit 'Speichern', :class => 'btn btn-lg btn-success btn-block' %>
+  </div>
+<% end %>
