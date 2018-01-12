@@ -1,0 +1,14 @@
+<div class="authform">
+  <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
+    <h3>Passwort ändern</h3>
+    <%= devise_error_messages! %>
+    <%= f.hidden_field :reset_password_token %>
+    <div class="form-group">
+      <%= f.label :Passwort, 'Neues Passwort' %>
+        <%= f.password_field :password, autofocus: true, autocomplete: 'off', class: 'form-control' %>
+      <%= f.label :Passwort_bestätigen, 'Neues Passwort bestätigen' %>
+        <%= f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control' %>
+    </div>
+     <%= f.submit 'Mein Passwort ändern', :class => 'button right' %>
+  <% end %>
+</div>

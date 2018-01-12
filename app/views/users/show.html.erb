@@ -1,0 +1,9 @@
+<% content_for(:page_header) do %>
+  <%= "User Profil" %>
+<% end %>
+<% content_for :panel_heading do %>Details<% end %>
+
+<h3>User</h3>
+<p>Vorname: <%= @user.firstname if @user.firstname %></p>
+<p>Nachname: <%= @user.lastname if @user.lastname %></p>
+<p>Email: <%= @user.email if @user.email %></p>
