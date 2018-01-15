@@ -1,34 +1,38 @@
 <% content_for(:page_header) do %>
-  <%= "Übersicht" %>
+  <%= "Teams" %>
 <% end %>
-<% content_for :panel_heading do %>Content<% end %>
-
-
 <p id="notice"><%= notice %></p>
 
-<table id="teams" class="display table" cellspacing="0" width="100%">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Shortcut</th>
-      <th></th>
-    </tr>
-  </thead>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Übersicht
+  </div>
+  <div class="panel-body">
+    <table id="teams" class="display table" cellspacing="0" width="100%">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Shortcut</th>
+          <th></th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @teams.each do |team| %>
-      <tr>
-        <td><%= team.name %></td>
-        <td><%= team.shortcut %></td>
-        <td class="action-buttons">
-          <%= link_to 'Anzeigen', team, class: 'btn btn-success' %>
-          <%= link_to 'Bearbeiten', edit_team_path(team), class: 'btn btn-primary' %>
-          <%= link_to 'Löschen', team, method: :delete, data: { confirm: 'Sind Sie sicher?' }, class: 'btn btn-danger' %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+        <% @teams.each do |team| %>
+          <tr>
+            <td><%= team.name %></td>
+            <td><%= team.shortcut %></td>
+            <td class="action-buttons">
+              <%= link_to 'Anzeigen', team, class: 'btn btn-success' %>
+              <%= link_to 'Bearbeiten', edit_team_path(team), class: 'btn btn-primary' %>
+              <%= link_to 'Löschen', team, method: :delete, data: { confirm: 'Sind Sie sicher?' }, class: 'btn btn-danger' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
 
 <% content_for(:extra_scripts) do %>
   <script type="text/javascript">

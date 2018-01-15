@@ -17,7 +17,7 @@
       </a>
       <ul class="dropdown-menu dropdown-user">
         <li>
-          Profil
+          <li><%= link_to '<i class="fa fa-user fa-fw"></i>Profile</a>'.html_safe, edit_user_registration_path %></li>
         </li>
         <li class="divider"></li>
         <li>
@@ -35,13 +35,18 @@
             Dashboard</a>
         </li>
         <li>
-          <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Teams<span class="fa arrow"></span></a>
-          <ul class="nav nav-second-level collapse">
+          <a href="#"><i class="fa fa-list fa-fw"></i> Stammdaten<span class="fa arrow"></span></a>
+          <ul class="nav nav-second-level">
             <li>
-              <%= link_to 'Übersicht', teams_path() %>
-            </li>
-            <li>
-              <%= link_to 'Neues Team erstellen', new_team_path() %>
+              <a href="#">Teams<span class="fa arrow"></span></a>
+              <ul class="nav nav-third-level">
+                <li>
+                  <%= link_to 'Übersicht', teams_path() %>
+                </li>
+                <li>
+                  <%= link_to 'Neues Team erstellen', new_team_path() %>
+                </li>
+              </ul>
             </li>
           </ul>
         </li>

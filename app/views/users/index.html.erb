@@ -1,15 +1,22 @@
-<div class="container">
-  <div class="row">
-    <div class="column">
-      <table class="table">
-        <tbody>
-          <% @users.each do |user| %>
-            <tr>
-              <%= render user %>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    User Übersicht
+  </div>
+  <div class="panel-body">
+    <div class="container">
+      <div class="row">
+        <div class="column">
+          <table class="table">
+            <tbody>
+              <% @users.each do |user| %>
+                <tr>
+                  <%= render user %>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
 </div>

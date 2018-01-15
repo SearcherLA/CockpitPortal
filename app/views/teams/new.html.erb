@@ -1,6 +1,11 @@
 <% content_for(:page_header) do %>
-  <%= "Neues Team erstellen" %>
+  <%= "Team" %>
 <% end %>
-<% content_for :panel_heading do %>Content<% end %>
-
-<%= render 'form' %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Neues Team erstellen
+  </div>
+  <div class="panel-body">
+    <%= render 'form' %>
+  </div>
+</div>

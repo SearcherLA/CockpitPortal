@@ -2,17 +2,18 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>
-    <%= content_for?(:title) ? yield(:title) : "Cockpit Portal" %>
-  </title>
+  <title>Cockpit Portal</title>
   <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Cockpit Portal" %>">
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </head>
 
 <body>
   <div id="wrapper" class="">
-    <%= render 'layouts/navbar' %>
+    <% if current_user then %>
+      <%= render 'layouts/navbar' %>
+    <% end %>
   </div>
 
   <div id="page-wrapper">
@@ -20,17 +21,9 @@
     <%= render 'layouts/messages' %>
 
     <div>
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <%= content_for?(:panel_heading) ? yield(:panel_heading) : "Dashboard" %>
-        </div>
-        <div class="panel-body">
-          <%= yield %>
-        </div>
-      </div>
+      <%= yield %>
     </div>
   </div>
 </body>
-<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 <%= content_for?(:extra_scripts) ? yield(:extra_scripts) : nil %>
 </html>
