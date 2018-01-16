@@ -1,0 +1,29 @@
+<% content_for(:page_header) do %>
+  <%= "Solution Architect" %>
+<% end %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Solution Architect anzeigen
+  </div>
+  <div class="panel-body">
+    <p>
+      <strong>Firstname:</strong>
+      <%= @solution_architect.firstname %>
+    </p>
+
+    <p>
+      <strong>Lastname:</strong>
+      <%= @solution_architect.lastname %>
+    </p>
+
+    <p>
+      <strong>Shortcut:</strong>
+      <%= @solution_architect.shortcut %>
+    </p>
+
+    <p>
+      <strong>Team:</strong>
+      <%= @solution_architect.team_id %>
+    </p>
+  </div>
+</div>

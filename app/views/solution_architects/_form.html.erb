@@ -1,0 +1,33 @@
+<%= form_for(@solution_architect) do |f| %>
+  <% if @solution_architect.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= pluralize(@solution_architect.errors.count, "error") %> prohibited this solution_architect from being saved:</h3>
+
+      <ul>
+      <% @solution_architect.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :firstname, 'Vorname' %><br>
+    <%= f.text_field :firstname, class: 'form-control', placeholder: 'Bitte Vorname eingeben...', required: true %>
+  </div>
+  <div class="form-group">
+    <%= f.label :lastname, 'Nachname' %><br>
+    <%= f.text_field :lastname, class: 'form-control', placeholder: 'Bitte Nachname eingeben...', required: true %>
+  </div>
+  <div class="form-group">
+    <%= f.label :shortcut, 'Kürzel' %><br>
+    <%= f.text_area :shortcut, class: 'form-control', placeholder: 'Bitte Kürzel eingeben...', required: true %>
+  </div>
+  <div class="form-group">
+    <%= f.label :team_id, 'Team' %><br>
+    <%= f.collection_select(:team_id, Team.all.order(name: :asc), :id, :name, {}, {:class=> 'form-control'}) %>
+  </div>
+  <div class="form-group actions">
+    <%= f.submit 'Speichern', :class => 'btn btn-lg btn-success btn-block' %>
+  </div>
+<% end %>

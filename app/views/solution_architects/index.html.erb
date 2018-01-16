@@ -1,0 +1,59 @@
+<% content_for(:page_header) do %>
+  <%= "Solution Architects" %>
+<% end %>
+<p id="notice"><%= notice %></p>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Übersicht
+  </div>
+  <div class="panel-body">
+    <table id="sa" class="display table" cellspacing="0" width="100%">
+      <thead>
+        <tr>
+          <th>Vorname</th>
+          <th>Nachname</th>
+          <th>Kürzel</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @solution_architects.each do |solution_architect| %>
+          <tr>
+            <td><%= solution_architect.firstname %></td>
+            <td><%= solution_architect.lastname %></td>
+            <td><%= solution_architect.shortcut %></td>
+            <td class="action-buttons">
+              <%= link_to 'Anzeigen', solution_architect, class: 'btn btn-success' %>
+              <%= link_to 'Bearbeiten', edit_solution_architect_path(solution_architect), class: 'btn btn-primary' %>
+              <%= link_to 'Löschen', solution_architect, method: :delete, data: { confirm: 'Sind Sie sicher?' }, class: 'btn btn-danger' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<% content_for(:extra_scripts) do %>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('#sa').DataTable({
+        responsive: true,
+        language : {
+          lengthMenu: "Zeige _MENU_ pro Seite",
+          zeroRecords: "Sorry, nichts gefunden",
+          info: "Seite _PAGE_ von _PAGES_",
+          infoEmpty: "Keine Datensätze verfügbar",
+          infoFiltered: "(gefiltert aus _MAX_ Datensätzen gesamt)",
+          search: "Suche: ",
+          paginate: {
+              next:       "Nächster",
+              previous:   "Voriger"
+          },
+        }
+      });
+    });
+  </script>
+<% end %>
