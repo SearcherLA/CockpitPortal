@@ -26,39 +26,28 @@ class SolutionArchitectsController < ApplicationController
   def create
     @solution_architect = SolutionArchitect.new(solution_architect_params)
 
-    respond_to do |format|
       if @solution_architect.save
-        format.html { redirect_to @solution_architect, notice: 'Solution architect was successfully created.' }
-        format.json { render :show, status: :created, location: @solution_architect }
+        redirect_to solution_architects_url, notice: 'Solution architect was successfully created.'
       else
-        format.html { render :new }
-        format.json { render json: @solution_architect.errors, status: :unprocessable_entity }
+        render :new
       end
-    end
   end
 
   # PATCH/PUT /solution_architects/1
   # PATCH/PUT /solution_architects/1.json
   def update
-    respond_to do |format|
       if @solution_architect.update(solution_architect_params)
-        format.html { redirect_to @solution_architect, notice: 'Solution architect was successfully updated.' }
-        format.json { render :show, status: :ok, location: @solution_architect }
+        redirect_to solution_architects_url, notice: 'Solution architect was successfully updated.'
       else
-        format.html { render :edit }
-        format.json { render json: @solution_architect.errors, status: :unprocessable_entity }
+        render :edit
       end
-    end
   end
 
   # DELETE /solution_architects/1
   # DELETE /solution_architects/1.json
   def destroy
     @solution_architect.destroy
-    respond_to do |format|
-      format.html { redirect_to solution_architects_url, notice: 'Solution architect was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+      redirect_to solution_architects_url, notice: 'Solution architect was successfully destroyed.'
   end
 
   private

@@ -24,7 +24,7 @@ class TeamsController < ApplicationController
     @team = Team.new(team_params)
 
       if @team.save
-        redirect_to @team, notice: 'Team wurde erfolgreich erstellt.'
+        redirect_to teams_url, notice: 'Team wurde erfolgreich erstellt.'
       else
         render :new
       end
@@ -33,7 +33,7 @@ class TeamsController < ApplicationController
   # PATCH/PUT /teams/1
   def update
       if @team.update(team_params)
-        redirect_to @team, notice: 'Team wurde erfolgreich geändert.'
+        redirect_to teams_url, notice: 'Team wurde erfolgreich geändert.'
       else
         render :edit
       end

@@ -6,6 +6,11 @@
 <div class="panel panel-default">
   <div class="panel-heading">
     Übersicht
+    <div class= "nav navbar-right">
+      <%= link_to new_team_path(), class: "btn btn-success btn-xs" do %>
+                <i class="fa fa-plus"> Team hinzufügen </i>
+      <% end %>
+    </div>
   </div>
   <div class="panel-body">
     <table id="teams" class="display table" cellspacing="0" width="100%">
@@ -23,9 +28,12 @@
             <td><%= team.name %></td>
             <td><%= team.shortcut %></td>
             <td class="action-buttons">
-              <%= link_to 'Anzeigen', team, class: 'btn btn-success' %>
-              <%= link_to 'Bearbeiten', edit_team_path(team), class: 'btn btn-primary' %>
-              <%= link_to 'Löschen', team, method: :delete, data: { confirm: 'Sind Sie sicher?' }, class: 'btn btn-danger' %>
+              <%= link_to edit_team_path(team), class: "btn btn-primary btn-xs" do %>
+                <i class="fa fa-pencil"></i>
+                <% end %>
+              <%= link_to team,method: :delete, data: { confirm: 'Sind Sie sicher ?' }, class: "btn btn-danger btn-xs" do %>
+                  <i class="fa fa-trash"></i>
+              <% end %>
             </td>
           </tr>
         <% end %>
