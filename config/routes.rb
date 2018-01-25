@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   resources :teams
   resources :users, only: [:show]
 
+  resources :dashboards
+
   root to: 'welcome#index'
 end
