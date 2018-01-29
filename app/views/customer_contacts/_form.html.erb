@@ -1,0 +1,57 @@
+<%= form_with(model: customer_contact, local: true) do |form| %>
+  <% if customer_contact.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(customer_contact.errors.count, "error") %> prohibited this customer_contact from being saved:</h2>
+
+      <ul>
+      <% customer_contact.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :firstname %>
+    <%= form.text_field :firstname, id: :customer_contact_firstname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :lastname %>
+    <%= form.text_field :lastname, id: :customer_contact_lastname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :function %>
+    <%= form.text_field :function, id: :customer_contact_function %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title_id %>
+    <%= form.number_field :title_id, id: :customer_contact_title_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :customer_id %>
+    <%= form.number_field :customer_id, id: :customer_contact_customer_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone %>
+    <%= form.text_field :phone, id: :customer_contact_phone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email, id: :customer_contact_email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :birthday %>
+    <%= form.date_select :birthday, id: :customer_contact_birthday %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
