@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Datev-Id: 1
+  name: MyString
+  displayname: MyString
+  solution_architect_id: 1
+  reseller_id: 1
+
+two:
+  Datev-Id: 1
+  name: MyString
+  displayname: MyString
+  solution_architect_id: 1
+  reseller_id: 1

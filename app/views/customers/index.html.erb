@@ -1,0 +1,68 @@
+<% content_for(:page_header) do %>
+  <%= "Kunden" %>
+<% end %>
+<p id="notice"><%= notice %></p>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Übersicht
+    <div class= "nav navbar-right">
+      <%= link_to new_customer_path(), class: "btn btn-success btn-xs" do %>
+                <i class="fa fa-plus"> Kunde hinzufügen </i>
+      <% end %>
+    </div>
+  </div>
+  <div class="panel-body">
+    <table id="customers" class="display table" cellspacing="0" width="100%">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Shortcut</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @customers.each do |customer| %>
+          <tr>
+            <td><%= customer.name %></td>
+            <td><%= customer.DatevId %></td>
+            <td><%= customer.displayname %></td>
+            <td><%= customer.solution_architect_id %></td>
+            <td><%= customer.reseller_id %></td>
+            <td class="action-buttons">
+              <%= link_to edit_customer_path(customer), class: "btn btn-primary btn-xs" do %>
+                <i class="fa fa-pencil"></i>
+                <% end %>
+              <%= link_to customer,method: :delete, data: { confirm: 'Sind Sie sicher ?' }, class: "btn btn-danger btn-xs" do %>
+                  <i class="fa fa-trash"></i>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<% content_for(:extra_scripts) do %>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('#customers').DataTable({
+        responsive: true,
+        language : {
+          lengthMenu: "Zeige _MENU_ pro Seite",
+          zeroRecords: "Sorry, nichts gefunden",
+          info: "Seite _PAGE_ von _PAGES_",
+          infoEmpty: "Keine Datensätze verfügbar",
+          infoFiltered: "(gefiltert aus _MAX_ Datensätzen gesamt)",
+          search: "Suche: ",
+          paginate: {
+              next:       "Nächster",
+              previous:   "Voriger"
+          },
+        }
+      });
+    });
+  </script>
+<% end %>

@@ -1,0 +1,19 @@
+<% content_for(:page_header) do %>
+  <%= "Kunde" %>
+<% end %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Kunde anzeigen
+  </div>
+  <div class="panel-body">
+    <p>
+      <strong>Name:</strong>
+      <%= @kunde.name %>
+    </p>
+
+    <p>
+      <strong>Shortcut:</strong>
+      <%= @kunde.displayname %>
+    </p>
+  </div>
+</div>

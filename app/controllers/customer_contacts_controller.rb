@@ -26,7 +26,7 @@ class CustomerContactsController < ApplicationController
     @customer_contact = CustomerContact.new(customer_contact_params)
 
       if @customer_contact.save
-        redirect_to @customer_contact, notice: 'Customer contact was successfully created.'
+        redirect_to customer_contacts_url, notice: 'Kundenkontakt wurde erfolgreich erstellt.'
       else
         render :new
       end
@@ -35,7 +35,7 @@ class CustomerContactsController < ApplicationController
   # PATCH/PUT /customer_contacts/1
   def update
       if @customer_contact.update(customer_contact_params)
-        redirect_to @customer_contact, notice: 'Customer contact was successfully updated.'
+        redirect_to customer_contacts_url, notice: 'Kundenkontakt wurde erfolgreich geändert.'
       else
         render :edit
       end
@@ -44,7 +44,7 @@ class CustomerContactsController < ApplicationController
   # DELETE /customer_contacts/1
   def destroy
     @customer_contact.destroy
-      redirect_to customer_contacts_url, notice: 'Customer contact was successfully destroyed.'
+      redirect_to customer_contacts_url, notice: 'Kundenkontakt wurde erfolgreich gelöscht.'
   end
 
   private
